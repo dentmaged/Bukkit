@@ -113,7 +113,10 @@ public class SimpleCommandMap implements CommandMap {
         if (!isAlias) {
             command.setLabel(label);
         }
-        knownCommands.put(label, command);
+        
+        if (fallbackPrefix != "") {
+            knownCommands.put(label, command);
+        }
 
         return registered;
     }
